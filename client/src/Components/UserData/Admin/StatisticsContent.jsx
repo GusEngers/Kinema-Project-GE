@@ -34,7 +34,7 @@ export default function Statistics({ movies, tvShows, totalContent }) {
         >
           <Flex justifyContent={'space-between'}>
             <Box pl={{ base: 2, md: 4 }}>
-              <StatLabel color={'blue.600'} fontWeight={'medium'} isTruncated>
+              <StatLabel color={'blue.600'} fontWeight={'medium'}>
                 Movies
               </StatLabel>
               <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
@@ -60,7 +60,7 @@ export default function Statistics({ movies, tvShows, totalContent }) {
         >
           <Flex justifyContent={'space-between'}>
             <Box pl={{ base: 2, md: 4 }}>
-              <StatLabel color={'yellow.500'} fontWeight={'medium'} isTruncated>
+              <StatLabel color={'yellow.500'} fontWeight={'medium'}>
                 TV Shows
               </StatLabel>
               <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
@@ -86,7 +86,7 @@ export default function Statistics({ movies, tvShows, totalContent }) {
         >
           <Flex justifyContent={'space-between'}>
             <Box pl={{ base: 2, md: 4 }}>
-              <StatLabel color={'green.600'} fontWeight={'medium'} isTruncated>
+              <StatLabel color={'green.600'} fontWeight={'medium'}>
                 Total Content
               </StatLabel>
               <StatNumber fontSize={'2xl'} fontWeight={'medium'}>

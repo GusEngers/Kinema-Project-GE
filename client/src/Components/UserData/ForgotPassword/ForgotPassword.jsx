@@ -32,7 +32,7 @@ import { useAuth } from '../../AuthContext/AuthContext';
                 duration: 5000,
                 isClosable: true
             })
-            navigate('/login') 
+            navigate('/login/start') 
         } catch (error) {
             toast({
                 description: "Email not found",

@@ -197,7 +197,7 @@ export default function Login() {
             justifyContent={'center'}
           >
             <Text color={'white'}>¿First Time in KINEMA? </Text>
-            <Link href="/register" color={'gray'}>
+            <Link href="/register/start" color={'gray'}>
               Sign up
             </Link>
           </Stack>

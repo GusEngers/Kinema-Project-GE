@@ -35,12 +35,16 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/login/start" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register/start" element={<Register />} />
         <Route path="/recover_password" element={<ForgotPassword />} />
         <Route path="/register/plan" element={<Plan />} />
+        <Route path="/register/plan/start" element={<Plan />} />
         <Route path="/home" element={<Home />} />
         <Route path="/home/watch/:id" element={<Watch />} />
         <Route path="/payment" element={<PaymentCheckout />} />
+        <Route path="/payment/start" element={<PaymentCheckout />} />
         <Route path="/payment/upgrade" element={<PaymentCheckout />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/content" element={<KinemaContent />} />

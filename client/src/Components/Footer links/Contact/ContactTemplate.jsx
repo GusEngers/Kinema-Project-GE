@@ -27,9 +27,9 @@ import {
   MdOutlineEmail,
 } from 'react-icons/md';
 import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
-import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 
 export default function ContactTemplate() {
   
@@ -88,7 +88,7 @@ export default function ContactTemplate() {
   }
 
 
-  function sendEmail(e) {
+  async function sendEmail(e) {
     if (errors.name || errors.email || errors.message) {
       e.preventDefault()
       toast.warn('The form is not properly complete.', {
@@ -103,8 +103,12 @@ export default function ContactTemplate() {
         });
     } else {
       e.preventDefault();
-      emailjs.sendForm("service_1bulzc5", "template_1ecml8r", e.target, "sz809Sptds_qM-l4v")
-        .then(response => {
+      await axios.post('/email/contact', {
+        email: input.email,
+        user: input.name,
+        message: input.message
+      })
+      .then(response => {
           toast.success('Message sent successfully.', {
             position: "top-center",
             autoClose: 3500,

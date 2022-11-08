@@ -24,12 +24,12 @@ import { color } from '../globalStyles';
 export default function LandingPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(state => state.user)
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(getHomeAll());
-    if(user){
-      navigate("/home")
+    if (user) {
+      navigate('/home');
     }
   }, [dispatch]);
 
@@ -50,13 +50,18 @@ export default function LandingPage() {
   return (
     <Box className={styles.background}>
       <Flex className={styles.nav}>
-        <Image boxSize={{base: '120px', sm: '150px'}} className={styles.logo} src={logo} alt='logo' />
+        <Image
+          boxSize={{ base: '120px', sm: '150px' }}
+          className={styles.logo}
+          src={logo}
+          alt="logo"
+        />
         <Box className={styles.list} ref={list}>
-          <Text className={styles.sign}>
-            <Link to={'/register'}>Register </Link>
+          <Text marginBottom={'20px'} className={styles.sign}>
+            <Link to={'/register/start'}>Register </Link>
           </Text>
           <Text className={styles.sign}>
-            <Link to={'/login'}>Log In </Link>
+            <Link to={'/login/start'}>Log In </Link>
           </Text>
 
           <Box className={styles.nav__close}>
@@ -76,7 +81,6 @@ export default function LandingPage() {
             ref={refMenuBtn}
             id={'5'}
             onClick={handleToggleMenu}
-            
           >
             Menu
           </Text>
@@ -85,57 +89,57 @@ export default function LandingPage() {
       <Box className={styles.movies}>
         <Box className={styles.top_blur}></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list2}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list3}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list4}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list5}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list6}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list7}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list8}
         ></Box>
         <Box
-          borderWidth='2px'
-          borderStyle='solid'
-          borderColor='black'
+          borderWidth="2px"
+          borderStyle="solid"
+          borderColor="black"
           className={styles.movie_list_collage}
         ></Box>
         <Box className={styles.bottom_blur}> </Box>
@@ -147,8 +151,8 @@ export default function LandingPage() {
             <Text
               className={styles.main_text}
               fontSize={{ base: '1.6rem', md: '2.5rem', lg: '3.4rem' }}
-              fontWeight='600'
-              mr='16px'
+              fontWeight="600"
+              mr="16px"
             >
               All Movies and TV Shows
             </Text>
@@ -156,7 +160,7 @@ export default function LandingPage() {
               className={styles.main_text}
               color={color.kinemaLogoColor1}
               fontSize={{ base: '1.6rem', md: '2.5rem', lg: '3.4rem' }}
-              fontWeight='600'
+              fontWeight="600"
             >
               one click ahead!
             </Text>
@@ -172,16 +176,16 @@ export default function LandingPage() {
             Sit, relax and enjoy.
           </Text>
           <Box className={styles.container_button}>
-            <Link to='/home'>
+            <Link to="/home">
               <Button
                 bg={{ base: color.kinemaLogoColor1, sm: 'transparent' }}
                 opacity={{ base: '.9', sm: '0.8' }}
                 rounded={'full'}
-                color={{base: 'black', sm: 'white'}}
+                color={{ base: 'black', sm: 'white' }}
                 width={{ base: '6rem', md: '10rem', lg: '12rem' }}
                 fontSize={{ base: '16px', md: '1rem', lg: '1.2rem' }}
                 padding={{ base: '10px', md: '15px', lg: '20px' }}
-                border='4px'
+                border="4px"
                 borderColor={color.kinemaLogoColor1}
                 _hover={{
                   bg: color.kinemaLogoColor1,
@@ -211,10 +215,10 @@ export default function LandingPage() {
         }}
       >
         <Text
-          textAlign='center'
-          marginTop='1rem'
-          display='flex'
-          justifyContent='center'
+          textAlign="center"
+          marginTop="1rem"
+          display="flex"
+          justifyContent="center"
           fontSize={{ base: '1rem', md: '1.5rem', lg: '2.1rem' }}
         >
           Kinema is a responsive web. You can use it on your desktop/laptop,
@@ -222,19 +226,19 @@ export default function LandingPage() {
         </Text>
         <Center>
           <Box
-            display='flex'
+            display="flex"
             flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
-            justifyContent='center'
-            alignItems='center'
-            margin='1rem'
+            justifyContent="center"
+            alignItems="center"
+            margin="1rem"
             ml={{ base: '1rem', md: '7rem', lg: '25rem' }}
           >
-            <Box display='flex' justifyContent='center'>
+            <Box display="flex" justifyContent="center">
               <Image
                 src={phone}
                 width={{ base: '30%', md: '90%', lg: '70%' }}
-                height='auto'
-                alt='phone'
+                height="auto"
+                alt="phone"
               />
             </Box>
             <Divider
@@ -245,19 +249,19 @@ export default function LandingPage() {
               }}
               height={{ base: '0.1rem', md: '8rem', lg: '20rem' }}
               width={{ base: '100%', md: '20px', lg: '10px' }}
-              backgroundColor='white'
+              backgroundColor="white"
               margin={{
                 base: '3rem',
                 md: '1rem',
                 lg: '1rem',
               }}
             />
-            <Box display='flex' justifyContent='center' alignItems='center'>
+            <Box display="flex" justifyContent="center" alignItems="center">
               <Image
                 src={computer}
                 width={{ base: '100%', md: '90%', lg: '70%' }}
-                height='auto'
-                alt='computer'
+                height="auto"
+                alt="computer"
               />
             </Box>
             <Divider
@@ -268,7 +272,7 @@ export default function LandingPage() {
               }}
               height={{ base: '0.1rem', md: '8rem', lg: '20rem' }}
               width={{ base: '100%', md: '20px', lg: '10px' }}
-              backgroundColor='white'
+              backgroundColor="white"
               /* margin responsive: */
               margin={{
                 base: '3rem',
@@ -276,12 +280,12 @@ export default function LandingPage() {
                 lg: '1rem',
               }}
             />
-            <Box display='flex' justifyContent='center' alignItems='center'>
+            <Box display="flex" justifyContent="center" alignItems="center">
               <Image
                 src={tablet}
                 width={{ base: '50%', md: '45%', lg: '30%' }}
-                height='auto'
-                alt='tablet'
+                height="auto"
+                alt="tablet"
                 ml={{ base: '0px', lg: '100px', '2xl': '0px' }}
                 mr={{ base: '0rem', md: '5rem', lg: '25rem' }}
               />
@@ -297,15 +301,15 @@ export default function LandingPage() {
           }}
         />
         <Text
-          textAlign='center'
-          marginTop='1rem'
-          display='flex'
-          justifyContent='center'
+          textAlign="center"
+          marginTop="1rem"
+          display="flex"
+          justifyContent="center"
           fontSize={{ base: '1rem', md: '1.5rem', lg: '2.1rem' }}
         >
           Choose the plan that suits you best!
         </Text>
-        <Box marginBottom='1rem'>
+        <Box marginBottom="1rem">
           {/* PRICING: */}
           <Flex
             style={{
@@ -322,7 +326,7 @@ export default function LandingPage() {
               }}
             >
               <Box width={{ base: '100%', md: '50%', lg: '40%' }}>
-                <Link to={'/register'}>
+                <Link to={'/register/start'}>
                   <Pricing
                     planType={'Premium'}
                     price={7.99}
@@ -333,7 +337,7 @@ export default function LandingPage() {
                 </Link>
               </Box>
               <Divider
-                orientation='vertical'
+                orientation="vertical"
                 height={{ base: '0rem', md: '34rem', lg: '34rem' }}
                 margin={{ base: '0rem', md: '1rem', lg: '3rem' }}
                 style={{
@@ -342,7 +346,7 @@ export default function LandingPage() {
                 }}
               />
               <Box width={{ base: '100%', md: '50%', lg: '40%' }}>
-                <Link to={'/register'}>
+                <Link to={'/register/start'}>
                   <Pricing
                     planType={'Basic'}
                     price={0}

@@ -34,7 +34,7 @@
   },
   {
     "fullName" : "Pablo Carro",
-    "profilePic": "prueba.jpeg",
+    "profilePic": "Pablo.jpg",
     "skill": "Optimization",
     "description": "Team player, organized and proactive. I love martial arts and video games.",
     "education": "Fullstack Developer",
@@ -62,18 +62,18 @@
     "education": "Full Stack developer",
     "location": "Buenos Aires, Argentina",
     "email": "matias.tonelli@outlook.com",
-    "linkedin": "https://www.linkedin.com/in/juan-francisco-drewanz-7b099226/",
-    "github": "https://github.com/Quico88"
-  },
-  {
-    "fullName": "Patterson johnson",
-    "profilePic": "prueba.jpeg",
-    "skill": "",
-    "description": "Full Stack maker & UI / UX Designer , love hip hop music Author of Building UI.",
-    "education": "Chock UI",
-    "location": "California",
-    "email": "juandrewanz@gmail.com",
     "linkedin": "https://www.linkedin.com/in/matias-tonelli/",
     "github": "https://github.com/MatiTonelli"
+  },
+  {
+    "fullName": "Adriel Lopez Decalle",
+    "profilePic": "Adriel.jpeg",
+    "skill": "Creativity",
+    "description": "Full Stack maker & UI / UX Designer , love hip hop music, football and gaming",
+    "education": "Fullstack Developer | Systems Analyst",
+    "location": "Buenos Aires, Argentina",
+    "email": "adrielisaias1@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/adriel-isa%C3%ADas-lopez-decalle-8b152b231/",
+    "github": "https://github.com/AdrielLopez"
   }
 ]

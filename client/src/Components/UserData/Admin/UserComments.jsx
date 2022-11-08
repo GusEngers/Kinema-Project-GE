@@ -30,18 +30,21 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { firestore } from '../../AuthContext/firebase';
 import { BsFillChatDotsFill } from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
+import loader from '../../../Assets/loader.gif';
 
-export default function UserComments2() {
+export default function UserComments() {
   const dispatch = useDispatch();
   const toast = useToast();
   let { id } = useParams();
 
   const [comments, setComments] = useState([]);
   const [refresh, setRefresh] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log(id);
+    setLoading(true);
     dispatch(getCommentsData(id)).then((res) => {
+      setLoading(false);
       setComments(res.payload);
     });
   }, [refresh]);
@@ -97,6 +100,11 @@ export default function UserComments2() {
           Go back
         </Button>
       </Box>
+      {loading ? (
+        <Center height={'100vh'} width={'100vw'}>
+          <Image boxSize="160px" src={loader} alt="loader" />
+        </Center>
+      ) : null}
       {comments.length > 0 ? (
         <TableContainer border="1px" borderColor="gray.500">
           <Center>
@@ -160,6 +168,7 @@ export default function UserComments2() {
                                 width={'1000px'}
                                 height={'150px'}
                                 overflow={'auto'}
+                                backgroundColor="gray.700"
                               >
                                 {' '}
                                 <Text>{comment.content}</Text>{' '}

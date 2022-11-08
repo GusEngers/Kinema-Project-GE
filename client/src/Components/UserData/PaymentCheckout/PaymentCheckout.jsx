@@ -117,7 +117,20 @@ const CheckoutForm = () => {
           type: 'card',
           card: elements.getElement(CardElement),
         });
-        if (!error) {
+        if(error){
+            setLoading(false);
+            toast.error('Please fill all credit card information.', {
+              position: 'top-center',
+              autoClose: 3500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: 'dark',
+            });
+        }
+        else {
           const { id } = paymentMethod;
           const { data } = await axios.post('/payment/premium', {
             id,
@@ -147,7 +160,7 @@ const CheckoutForm = () => {
             dispatch(changeSID(data.subId));
             await upgratePlanFire();
             dispatch(upgradePlan());
-            pathname.includes('upgrade') ? navigate(-1) : navigate('/home');
+            pathname.includes('upgrade') ? navigate(-1) : pathname.includes('start') ? navigate('/home') : navigate(-3);
           } else {
             setLoading(false);
             toast.error(data.message, {
@@ -187,6 +200,7 @@ const CheckoutForm = () => {
           justifyContent="center"
           alignItems={'center'}
           mt={isLargerThan480 ? '18vh' : '3vh'}
+          color="black"
         >
           <Stack
             direction={isLargerThan480 ? 'row' : 'column-reverse'}
@@ -265,7 +279,7 @@ const CheckoutForm = () => {
                   />
                 </Box>
               </Stack>
-              <CardElement className="pcard" />
+              <CardElement className="pcard" options={{ hidePostalCode: true }} />
               {isLargerThan480 ? null : loading ? (
                 <Flex justify="center" align="center">
                   <Image mt="20px" boxSize="60px" src={loader} alt="loader" />

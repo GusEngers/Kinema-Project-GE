@@ -1,4 +1,6 @@
 import {
+  Flex,
+  Image,
   Box,
   Stack,
   Heading,
@@ -15,19 +17,24 @@ import Footer from '../../Home/Chakra UI Components/Footer';
 import { FcGoogle } from 'react-icons/fc';
 import { useState } from 'react';
 import { useAuth } from '../../AuthContext/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import NavBarPayment from '../../NavBarPayment/NavBarPayment';
+import loader from '../../../Assets/loader.gif';
 
 export default function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState(true);
   const [errorEm, setErrorEm] = useState(true);
   const [validName, setValidName] = useState(true)
+  const [loading, setLoading] = useState(false);
+  const { pathname } = useLocation();
+
 
   const [user, setUser] = useState({
     displayName: '',
     email: '',
     password: '',
+    error: false,
   });
 
   const { signup, signupWithGoogle } = useAuth();
@@ -50,11 +57,13 @@ export default function Register() {
       }else{
         setValidName(true)
       }
+      setLoading(true)
       await signup(user.email, user.password, user.displayName);
-      navigate('/register/plan');
+      pathname.includes('start') ? navigate('/register/plan/start') : navigate('/register/plan');
     } catch (error) {
       if(error.message.includes("already")){
         setErrorEm(false)
+        await signup(user.email, user.password, user.displayName, error);
       }else{
         setErrorEm(true)
       }
@@ -67,8 +76,8 @@ export default function Register() {
   }
 
   async function handleGoogleSignin() {
+    setLoading(true)
     await signupWithGoogle();
-    navigate('/register/plan');
   }
 
   return (
@@ -104,12 +113,13 @@ export default function Register() {
           maxW={{ lg: 'lg' }}
         >
           <Stack spacing={4}>
+          <Flex justify='space-between' align='center' h='60px'>
             <Heading
               color={'white'}
               lineHeight={1.1}
               fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
             >
-              Sign up
+              Sign Up
               <Text
                 as={'span'}
                 bgGradient="linear(to-r, red.400,pink.400)"
@@ -118,6 +128,9 @@ export default function Register() {
                 !
               </Text>
             </Heading>
+            { loading ? <Image boxSize='60px' src={loader} alt='loader' /> : null }
+          </Flex>
+
           </Stack>
           <Box as={'form'} mt={10}>
             <Stack spacing={4}>

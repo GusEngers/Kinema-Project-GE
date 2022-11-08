@@ -68,14 +68,13 @@ export default function MovieDetail() {
   const [isShortThan960px] = useMediaQuery('(max-width: 960px)');
   const [isShortThan400px] = useMediaQuery('(max-width: 400px)');
 
-
   useEffect(() => {
     dispatch(clearMovieDetail());
     dispatch(getMovieDetail(id));
     dispatch(isLike(user.uid, id));
     dispatch(getLikesFromContent(id));
-    dispatch(loadUserData(user.uid))
-    dispatch(getCommentsData(id))
+    dispatch(loadUserData(user.uid));
+    dispatch(getCommentsData(id));
   }, [dispatch]);
 
   if (user && user.banned) {
@@ -89,17 +88,16 @@ export default function MovieDetail() {
       isClosable: true,
     });
     dispatch(logOutUser());
-    navigate("/home")
+    navigate('/home');
   }
 
   useEffect(() => {
-    setCommentsLocal(comments)
-  }, [comments])
-
+    setCommentsLocal(comments);
+  }, [comments]);
 
   useEffect(() => {
-    setLikesLocal(totalLikes)
-  }, [totalLikes])
+    setLikesLocal(totalLikes);
+  }, [totalLikes]);
 
   const handleDislike = (e) => {
     e.preventDefault();
@@ -154,7 +152,18 @@ export default function MovieDetail() {
       let year = date.getFullYear();
       let currentDate = `${day}-${month}-${year}`;
       dispatch(postNewComment(user.uid, commentArea, currentDate, myMovie.id));
-      setCommentsLocal(prev => prev.concat({_id: Math.random(), userId: user.uid, content: commentArea, date: currentDate, idReference: myMovie.id, avatar: user.avatar, username: user.username}))
+      setCommentsLocal((prev) =>
+        prev.concat({
+          _id: Math.random(),
+          userId: user.uid,
+          content: commentArea,
+          date: currentDate,
+          idReference: myMovie.id,
+          avatar: user.avatar,
+          username: user.username,
+        })
+      );
+      setCommentArea("")
     }
   };
 
@@ -251,13 +260,12 @@ export default function MovieDetail() {
                     <Box>
                       <Heading
                         mb="1.5vh"
-                        size="3xl"
                         textAlign="left"
                         noOfLines={2}
                         color="white"
                         fontWeight="bold"
-                        fontSize="4vh"
                         ml="10vw"
+                        fontSize="8vw"
                       >
                         {myMovie.title}
                       </Heading>
@@ -539,7 +547,7 @@ export default function MovieDetail() {
                         ) : null}
                         <Text mt="2vh" fontSize="2.5vw" color={'white'}>
                           You can&nbsp;
-                          <Link href="/payment" color={'#72efdd'}>
+                          <Link href="/payment/upgrade" color={'#72efdd'}>
                             <b>upgrade</b>
                           </Link>
                           &nbsp;your plan to watch any content.
@@ -553,13 +561,13 @@ export default function MovieDetail() {
                       <Box textAlign="left" mt="3vh">
                         <Text fontSize="2vh" color={'white'}>
                           <Link href="/login" color={'#72efdd'}>
-                            <b>Log In </b>
+                            <b>Log In</b>
                           </Link>
-                          or
+                          &nbsp;or&nbsp;
                           <Link href="/register" color={'#64dfdf'}>
-                            <b> Register </b>
+                            <b>Register</b>
                           </Link>
-                          to watch this movie.
+                          &nbsp;to watch this movie.
                         </Text>
                       </Box>
                     ) : null
@@ -587,11 +595,12 @@ export default function MovieDetail() {
                 <Container maxW="900px" ms="none" ml="10vw" mt="10vh">
                   <Heading
                     mb="1.5vh"
-                    size="3xl"
+                    size="xl"
                     textAlign="left"
                     noOfLines={2}
                     color="white"
                     fontWeight="bold"
+                    fontSize="3vw"
                   >
                     {myMovie.title}
                   </Heading>
@@ -893,7 +902,7 @@ export default function MovieDetail() {
                         ) : null}
                         <Text mt="2vh" fontSize="2.3vh" color={'white'}>
                           You can&nbsp;
-                          <Link href="/payment" color={'#72efdd'}>
+                          <Link href="/payment/upgrade" color={'#72efdd'}>
                             <b>upgrade</b>
                           </Link>
                           &nbsp;your plan to watch any content.
@@ -907,13 +916,13 @@ export default function MovieDetail() {
                       <Box textAlign="left" mt="3vh">
                         <Text fontSize="2.3vh" color={'white'}>
                           <Link href="/login" color={'#72efdd'}>
-                            <b>Log In </b>
+                            <b>Log In</b>
                           </Link>
-                          or
+                          &nbsp;or&nbsp;
                           <Link href="/register" color={'#64dfdf'}>
-                            <b> Register </b>
+                            <b>Register</b>
                           </Link>
-                          to watch this movie.
+                          &nbsp;to watch this movie.
                         </Text>
                       </Box>
                     ) : null
@@ -1059,15 +1068,17 @@ export default function MovieDetail() {
             </Flex>
           </Box>
         ) : (
-          <Image
-            w={['100px', '150px', '200px']}
-            src={loader}
-            alt="loader"
-            display="block"
-            margin="auto"
-            mt="20vh"
-            mb="20vh"
-          />
+          <Box h='80vh'>
+            <Image
+              w={['100px', '150px', '200px']}
+              src={loader}
+              alt="loader"
+              display="block"
+              margin="auto"
+              mt="20vh"
+              mb="20vh"
+            />
+          </Box>
         )}
         <Footer />
       </Flex>

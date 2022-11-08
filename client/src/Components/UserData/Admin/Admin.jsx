@@ -241,27 +241,24 @@ export default function Admin() {
                       let activeOrNot = user.active ? 'Active' : 'Not active';
 
                       return (
-                        <Tr>
+                        <Tr key={i}>
                           <Td>
                             <Avatar size={'md'} src={user.avatar} />
                           </Td>
                           <Td
                             fontSize={'14px'}
-                            key={user.email}
                             color={'gray.500'}
                           >
                             {user.email}
                           </Td>
                           <Td
                             fontSize={'14px'}
-                            key={user.username}
                             color={'gray.500'}
                           >
                             {user.username}
                           </Td>
                           <Td
                             fontSize={'14px'}
-                            key={user.subscriptionDate}
                             color={'gray.500'}
                           >
                             {user.subscriptionDate

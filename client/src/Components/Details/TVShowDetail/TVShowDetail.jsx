@@ -92,9 +92,9 @@ export default function TVShowDetail() {
       isClosable: true,
     });
     dispatch(logOutUser());
-    navigate("/home")
+    navigate('/home');
   }
-  
+
   useEffect(() => {
     setCommentsLocal(comments);
   }, [comments]);
@@ -172,6 +172,7 @@ export default function TVShowDetail() {
           username: user.username,
         })
       );
+      setCommentArea("")
     }
   };
 
@@ -276,13 +277,12 @@ export default function TVShowDetail() {
                     <Box>
                       <Heading
                         mb="1.5vh"
-                        size="3xl"
                         textAlign="left"
                         noOfLines={2}
                         color="white"
                         fontWeight="bold"
-                        fontSize="4vh"
                         ml="10vw"
+                        fontSize="8vw"
                       >
                         {mySerie.title}
                       </Heading>
@@ -543,7 +543,7 @@ export default function TVShowDetail() {
                         ) : null}
                         <Text mt="2vh" fontSize="2.5vw" color={'white'}>
                           You can&nbsp;
-                          <Link href="/payment" color={'#72efdd'}>
+                          <Link href="/payment/upgrade" color={'#72efdd'}>
                             <b>upgrade</b>
                           </Link>
                           &nbsp;your plan to watch any content.
@@ -557,13 +557,13 @@ export default function TVShowDetail() {
                       <Box textAlign="left" mt="3vh">
                         <Text fontSize="2vh" color={'white'}>
                           <Link href="/login" color={'#72efdd'}>
-                            <b>Log In </b>
+                            <b>Log In</b>
                           </Link>
-                          or
+                          &nbsp;or&nbsp;
                           <Link href="/register" color={'#64dfdf'}>
-                            <b> Register </b>
+                            <b>Register</b>
                           </Link>
-                          to watch this content.
+                          &nbsp;to watch this content.
                         </Text>
                       </Box>
                     ) : null
@@ -624,12 +624,13 @@ export default function TVShowDetail() {
               >
                 <Container maxW="90%" ms="none" ml="5vw" mt="3vh">
                   <Heading
-                    mb="1.5vh"
-                    size="3xl"
+                    mb="3vh"
+                    size="xl"
                     textAlign="left"
                     noOfLines={2}
                     color="white"
                     fontWeight="bold"
+                    fontSize="3vw"
                   >
                     {mySerie.title}
                   </Heading>
@@ -909,7 +910,7 @@ export default function TVShowDetail() {
                         ) : null}
                         <Text mt="2vh" fontSize="2.3vh" color={'white'}>
                           You can&nbsp;
-                          <Link href="/payment" color={'#72efdd'}>
+                          <Link href="/payment/upgrade" color={'#72efdd'}>
                             <b>upgrade</b>
                           </Link>
                           &nbsp;your plan to watch any content.
@@ -923,13 +924,13 @@ export default function TVShowDetail() {
                       <Box textAlign="left" mt="1vh">
                         <Text fontSize="2.3vh" color={'white'} mt="2vh">
                           <Link href="/login" color={'#72efdd'}>
-                            <b>Log In </b>
+                            <b>Log In</b>
                           </Link>
-                          or
+                          &nbsp;or&nbsp;
                           <Link href="/register" color={'#64dfdf'}>
-                            <b> Register </b>
+                            <b>Register</b>
                           </Link>
-                          to watch this show.
+                          &nbsp;to watch this show.
                         </Text>
                         <br />
                       </Box>
@@ -1110,15 +1111,17 @@ export default function TVShowDetail() {
             </Flex>
           </Box>
         ) : (
-          <Image
-            w={['100px', '150px', '200px']}
-            src={loader}
-            alt="loader"
-            display="block"
-            margin="auto"
-            mt="20vh"
-            mb="20vh"
-          />
+          <Box h='80vh'>
+            <Image
+              w={['100px', '150px', '200px']}
+              src={loader}
+              alt="loader"
+              display="block"
+              margin="auto"
+              mt="20vh"
+              mb="20vh"
+            />
+          </Box>
         )}
         <Footer />
       </Flex>
