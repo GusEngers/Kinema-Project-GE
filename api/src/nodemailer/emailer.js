@@ -6,14 +6,14 @@ let transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-    user: "kinema.entertainment@gmail.com",
-    pass: "oyqtxkhiutducegl"
+    user: "kinema.showcase@gmail.com",
+    pass: process.env.PASSWORD
   },
 });
 
 const sendMail = async (email, user) => {
   const info = await transporter.sendMail({
-    from: "kinema.entertainment@gmail.com",
+    from: "kinema.showcase@gmail.com",
     to: `${email}`,
     subject: "Welcome to Kinema",
     text: "Plaintext version of the message",
@@ -146,13 +146,13 @@ const sendMail = async (email, user) => {
     <td align="center" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:24px;color:#64434a;font-size:16px">Username: ${user} </p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:24px;color:#64434a;font-size:16px">Email: ${email} </p></td>
     </tr>
     <tr style="border-collapse:collapse">
-    <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:20px;padding-bottom:20px"><!--[if mso]><a href="https://kinema-seven.vercel.app/" target="_blank" hidden>
-    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://kinema-seven.vercel.app/"
+    <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:20px;padding-bottom:20px"><!--[if mso]><a href="https://kinema-entertainment.vercel.app/" target="_blank" hidden>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://kinema-entertainment.vercel.app/"
     style="height:40px; v-text-anchor:middle; width:101px" arcsize="50%" stroke="f" fillcolor="#27f5fb">
     <w:anchorlock></w:anchorlock>
     <center style='color:#64434a; font-family:roboto, "helvetica neue", helvetica, arial, sans-serif; font-size:14px; font-weight:400; line-height:14px; mso-text-raise:1px'>Explore!</center>
     </v:roundrect></a>
-    <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:transparent;background:#27f5fb;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://kinema-seven.vercel.app/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#64434A;font-size:17px;border-style:solid;border-color:#27f5fb;border-width:10px 20px 10px 20px;display:inline-block;background:#27f5fb;border-radius:30px;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-weight:normal;font-style:normal;line-height:20px;width:auto;text-align:center">Explore!</a></span><!--<![endif]--></td>
+    <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:transparent;background:#27f5fb;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://kinema-entertainment.vercel.app/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#64434A;font-size:17px;border-style:solid;border-color:#27f5fb;border-width:10px 20px 10px 20px;display:inline-block;background:#27f5fb;border-radius:30px;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-weight:normal;font-style:normal;line-height:20px;width:auto;text-align:center">Explore!</a></span><!--<![endif]--></td>
     </tr>
     </table></td>
     </tr>
@@ -194,7 +194,7 @@ const sendMail = async (email, user) => {
 
 const sendMailUpgrade = async (email, user) => {
   const info = await transporter.sendMail({
-    from: "kinema.entertainment@gmail.com",
+    from: "kinema.showcase@gmail.com",
     to: `${email}`,
     subject: "Subscription Successfully",
     text: "Plaintext version of the message",
@@ -327,13 +327,13 @@ const sendMailUpgrade = async (email, user) => {
     <td align="center" style="padding:10px;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:28px;color:#333333;font-size:14px"><strong>✔️ Watch any Movie and TV Shows</strong><br>✔️ <strong>Create your own Watchlist</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p></td>
     </tr>
     <tr style="border-collapse:collapse">
-    <td align="center" style="padding:10px;Margin:0"><!--[if mso]><a href="https://kinema-seven.vercel.app/" target="_blank" hidden>
-    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://kinema-seven.vercel.app/"
+    <td align="center" style="padding:10px;Margin:0"><!--[if mso]><a href="https://kinema-entertainment.vercel.app/" target="_blank" hidden>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://kinema-entertainment.vercel.app/"
     style="height:40px; v-text-anchor:middle; width:102px" arcsize="50%" stroke="f" fillcolor="#00fca8">
     <w:anchorlock></w:anchorlock>
     <center style='color:#64434a; font-family:roboto, "helvetica neue", helvetica, arial, sans-serif; font-size:14px; font-weight:700; line-height:14px; mso-text-raise:1px'>Explore!</center>
     </v:roundrect></a>
-    <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:transparent;background:#00fca8;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://kinema-seven.vercel.app/" class="es-button es-button-1" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#64434A;font-size:17px;border-style:solid;border-color:#00fca8;border-width:10px 20px;display:inline-block;background:#00fca8;border-radius:30px;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-weight:bold;font-style:normal;line-height:20px;width:auto;text-align:center">Explore!</a></span><!--<![endif]--></td>
+    <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:transparent;background:#00fca8;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://kinema-entertainment.vercel.app/" class="es-button es-button-1" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#64434A;font-size:17px;border-style:solid;border-color:#00fca8;border-width:10px 20px;display:inline-block;background:#00fca8;border-radius:30px;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-weight:bold;font-style:normal;line-height:20px;width:auto;text-align:center">Explore!</a></span><!--<![endif]--></td>
     </tr>
     </table></td>
     </tr>
@@ -375,7 +375,7 @@ const sendMailUpgrade = async (email, user) => {
 
 const sendMailRent = async (email, title, img, date, user) => {
   const info = await transporter.sendMail({
-    from: "kinema.entertainment@gmail.com",
+    from: "kinema.showcase@gmail.com",
     to: `${email}`,
     subject: "Rent Successfully",
     text: "Plaintext version of the message",
@@ -508,13 +508,13 @@ const sendMailRent = async (email, title, img, date, user) => {
     <td align="center" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:24px;color:#64434a;font-size:16px">Title: ${title} </p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:24px;color:#64434a;font-size:16px">Price: $1.99<br>Expiration date: ${date} </p></td>
     </tr>
     <tr style="border-collapse:collapse">
-    <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:20px;padding-bottom:20px"><!--[if mso]><a href="https://kinema-seven.vercel.app/" target="_blank" hidden>
-    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://kinema-seven.vercel.app/"
+    <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:20px;padding-bottom:20px"><!--[if mso]><a href="https://kinema-entertainment.vercel.app/" target="_blank" hidden>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="https://kinema-entertainment.vercel.app/"
     style="height:40px; v-text-anchor:middle; width:149px" arcsize="50%" stroke="f" fillcolor="#1cdaff">
     <w:anchorlock></w:anchorlock>
     <center style='color:#ffffff; font-family:roboto, "helvetica neue", helvetica, arial, sans-serif; font-size:14px; font-weight:700; line-height:14px; mso-text-raise:1px'>Watch!</center>
     </v:roundrect></a>
-    <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:transparent;background:#1cdaff;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://kinema-seven.vercel.app/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#ffffff;font-size:17px;border-style:solid;border-color:#1cdaff;border-width:10px 20px 10px 20px;display:inline-block;background:#1cdaff;border-radius:30px;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-weight:bold;font-style:normal;line-height:20px;width:auto;text-align:center">Enjoy Kinema!</a></span><!--<![endif]--></td>
+    <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:transparent;background:#1cdaff;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all"><a href="https://kinema-entertainment.vercel.app/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#ffffff;font-size:17px;border-style:solid;border-color:#1cdaff;border-width:10px 20px 10px 20px;display:inline-block;background:#1cdaff;border-radius:30px;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-weight:bold;font-style:normal;line-height:20px;width:auto;text-align:center">Enjoy Kinema!</a></span><!--<![endif]--></td>
     </tr>
     </table></td>
     </tr>
@@ -556,8 +556,8 @@ const sendMailRent = async (email, title, img, date, user) => {
 
 const sendMailContact = async (email, user, message) => {
   const info = await transporter.sendMail({
-    from: "kinema.entertainment@gmail.com",
-    to: `kinema.entertainment@gmail.com`,
+    from: "kinema.showcase@gmail.com",
+    to: `kinema.showcase@gmail.com`,
     subject: `New message from ${user}`,
     text: "Plaintext version of the message",
     html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -191,7 +191,7 @@ export default function ContactTemplate() {
                         color="#DCE2FF"
                         _hover={{ border: '2px solid #1C6FEB' }}
                         onClick={() => {
-                          navigator.clipboard.writeText('kinema.entertainment@gmail.com')
+                          navigator.clipboard.writeText('kinema.showcase@gmail.com')
                           toast.info('Copied to clipboard.', {
                             position: "top-center",
                             autoClose: 1500,
@@ -204,7 +204,7 @@ export default function ContactTemplate() {
                           })
                         }}
                         leftIcon={<MdEmail color="#1970F1" size="20px" />}>
-                        kinema.entertainment@gmail.com
+                        kinema.showcase@gmail.com
                       </Button>
                       <Button
                         size="md"

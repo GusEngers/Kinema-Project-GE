@@ -361,7 +361,7 @@ router.post("/email/upgrade", async (req, res) => {
 router.post("/email/rent", async (req, res) => {
   try {
     const body = req.body;
-    emailer.sendMailRent(body.email, body.title, body.img, body.date, body.user)
+    await emailer.sendMailRent(body.email, body.title, body.img, body.date, body.user)
     res.status(200).json('email de rent enviado!');
   } catch (e) {
     return res.status(204).json({ Error: e.message });
