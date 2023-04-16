@@ -1,7 +1,7 @@
 require('../Db/db.js');
 const { topRatedSeries, latestSeries } = require('../controllers local/getDataCarruselsJSON.js');
 
-const TVSeries = require('../Db/Schema/serie.js');
+const TVSeries = require('../database/cloud/models/serie.js');
 
 const getAllCarruselsTV = async () => {
   const allCarruselsTV = {};

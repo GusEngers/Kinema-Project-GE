@@ -1,7 +1,7 @@
 require(`dotenv`).config();
 const axios = require('axios');
 const { YOUR_API_KEY_1, API_YT_KEY } = process.env;
-const Serie = require('../Db/Schema/serie.js');
+const Serie = require('../database/cloud/models/serie.js');
 const { getDataJSON } = require('../controllers local/getDataJSONSeries.js');
 
 const api_general_route = 'https://api.themoviedb.org/3';

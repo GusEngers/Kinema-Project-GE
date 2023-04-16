@@ -1,15 +1,16 @@
 const server = require('./src/app.js');
+const mongoose = require('mongoose');
 require('dotenv').config();
-const database = require('./src/Db/db.js');
-const PORT = process.env.PORT;
+const { PORT, URL_DB } = process.env;
 
-database.on('error', (error) => {
-  console.log(error);
-});
-database.once('connected', () => {
-  console.log('Database connected!');
-});
-
-server.listen(PORT, () => {
-  console.log(`Server connected on port: ${PORT}`);
-});
+mongoose
+  .connect(URL_DB)
+  .then(() => {
+    console.info('Database connected!');
+    server.listen(PORT, () => {
+      console.info(`Server connected on port: ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Error connecting database:', error);
+  });

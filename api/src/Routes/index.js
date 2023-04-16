@@ -12,8 +12,8 @@ const { getGenresFromDB } = require('../controllers DB/getGenres.js');
 
 const { getMoviesGenreById } = require('../controllers API/genresMovies');
 
-const Comment = require('../Db/Schema/comment.js');
-const Like = require('../Db/Schema/like.js');
+const Comment = require('../database/cloud/models/comment.js');
+const Like = require('../database/cloud/models/like.js');
 
 const {
   getMoviesByIdApi,

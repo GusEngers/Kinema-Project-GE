@@ -1,7 +1,7 @@
 const axios = require('axios');
 const e = require('express');
-const Genre = require('../Db/Schema/genre.js');
-const Serie = require('../Db/Schema/serie.js');
+const Genre = require('../database/cloud/models/genre.js');
+const Serie = require('../database/cloud/models/serie.js');
 require('dotenv').config();
 const { getDataSearchJSON } = require('../controllers local/getDataJSON.js');
 const {

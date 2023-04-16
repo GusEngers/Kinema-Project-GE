@@ -1,4 +1,4 @@
-const Comment = require('../Db/Schema/comment.js');
+const Comment = require('../database/cloud/models/comment.js');
 
 const { doc, getDoc } = require('firebase/firestore');
 const { auth, firestore } = require("./firebase");
