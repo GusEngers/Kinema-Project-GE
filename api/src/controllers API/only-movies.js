@@ -5,7 +5,7 @@ const { getDataJSON } = require('../controllers local/getDataJSON.js');
 
 const getMovies = async (page) => {
   const results = undefined;
-  // await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${YOUR_API_KEY_1}&language=en-US&page=${page}`)
+  // await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=ca212c61e3ad0761ddbc73bf46306844&language=en-US&page=${page}`)
   // .then(d => d.data.results)
   // .catch(e => undefined)
 
