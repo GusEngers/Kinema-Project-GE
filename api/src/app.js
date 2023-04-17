@@ -1,20 +1,15 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const server = express();
 
 const cors = require('cors');
 const movies = require('./routes/movies.js');
+const genres = require('./routes/genres.js');
 
 server.name = 'API';
 server.use(cors());
 server.use(express.json());
-
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(bodyParser.json({ limit: '50mb' }));
-server.use(cookieParser());
 server.use(morgan('dev'));
 
 server.use((req, res, next) => {
@@ -29,6 +24,7 @@ server.use((req, res, next) => {
 });
 
 server.use('/movies', movies);
+server.use('/genres', genres);
 
 server.use((err, req, res, next) => {
   const status = err.status || 500;
