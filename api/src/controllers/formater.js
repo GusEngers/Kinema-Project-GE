@@ -32,9 +32,10 @@ function movieFormater(movie, mode) {
         month: 'long',
         day: 'numeric',
       }),
-      duration: `${movie.duration} minutes.`,
+      duration: `${movie.runtime} minutes.`,
       poster: IMAGE + movie.poster_path,
       backdrop: IMAGE + movie.backdrop_path,
+      trailer: movie.trailer,
     };
 }
 

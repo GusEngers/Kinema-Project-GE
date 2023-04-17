@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { approvedMovies } = require('./validate');
-const { getMoviesJSON } = require('../local/get-movies');
+const { getMoviesJSON } = require('../local/get_movies');
 require('dotenv').config();
 
 const { API_KEY } = process.env;

@@ -12,6 +12,19 @@ function getMoviesJSON(page = 1) {
   return movies.slice(omit, limit).map((movie) => movieFormaterJSON(movie));
 }
 
+/**
+ * Busca la película en el backup según su id
+ * @param id Id de la película
+ * @returns Objecto con el detalle de la película o un error si no se encuentra la película
+ */
+function getMovieJSON(id) {
+  let movie = movies.find((movie) => movie.id === Number(id));
+  if (!Object.entries(movie).length)
+    throw new Error("We're sorry! The requested movie is not available");
+  return movie;
+}
+
 module.exports = {
   getMoviesJSON,
+  getMovieJSON,
 };
