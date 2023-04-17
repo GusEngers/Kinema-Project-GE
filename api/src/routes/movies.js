@@ -15,7 +15,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+  const { id } = req.params;
   try {
+    if (isNaN(id)) throw new Error('ID not valid');
     const data = await getDetailMovie(id);
     res.json({ data });
   } catch (error) {

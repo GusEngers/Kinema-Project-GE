@@ -8,7 +8,7 @@ const {
 
 const getGenresFromAPI = async () => {
   const genres = undefined;
-  // await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${YOUR_API_KEY_1}&language=en-US`)
+  // await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=ca212c61e3ad0761ddbc73bf46306844&language=en-US`)
   // .then( d => d.data.genres)
   // .catch( e => undefined)
 

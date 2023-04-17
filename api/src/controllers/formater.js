@@ -15,7 +15,7 @@ function movieFormater(movie, mode) {
       id: movie.id,
       title: movie.title,
       description: movie.overview,
-      genres: genreInfo(movie.genre_ids),
+      genres: genreInfo(movie.genre_ids, 'movie'),
       poster: IMAGE + movie.poster_path,
       backdrop: IMAGE + movie.backdrop_path,
     };
