@@ -5,6 +5,11 @@ require('dotenv').config();
 const { API_KEY } = process.env;
 const API = 'https://api.themoviedb.org/3/genre';
 
+/**
+ * Obtener los generos de películas o series de la API, en caso de que falle la API hace la búsqueda en los JSON
+ * @param mode Dos posibles valores 'movie' o 'tv', caso contrario un error
+ * @returns Lista con los generos segun el valor de mode
+ */
 async function getGenres(mode) {
   if (!['movie', 'tv'].includes(mode.toLowerCase()))
     throw new Error(
