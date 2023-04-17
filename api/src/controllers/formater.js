@@ -8,7 +8,7 @@ const IMAGE = 'https://image.tmdb.org/t/p/original';
  * @returns Nuevo objeto formateado
  */
 function movieFormater(movie, mode) {
-  if (!mode.includes(['card', 'detail']))
+  if (!['card', 'detail'].includes(mode))
     throw new Error("Incorrect or not supplied movieFormater 'mode' parameter");
   if (mode === 'card')
     return {
@@ -38,6 +38,23 @@ function movieFormater(movie, mode) {
     };
 }
 
+/**
+ * Formatea resultados recibidos del backup, acortando información innecesaria y asegurando que todos sigan un estándar establecido
+ * @param movie Object con los resultados del backup
+ * @returns Nuevo objeto formateado
+ */
+function movieFormaterJSON(movie) {
+  return {
+    id: movie.id,
+    title: movie.title,
+    description: movie.description,
+    genres: movie.genres,
+    poster: movie.poster,
+    backdrop: movie.backdrop,
+  };
+}
+
 module.exports = {
   movieFormater,
+  movieFormaterJSON,
 };

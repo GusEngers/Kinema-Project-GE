@@ -1,4 +1,5 @@
 const { movieFormater } = require('../formater');
+
 /**
  * Verifica si las películas están completas y luego formatea los resultados aprobados
  * @param movies Lista de películas obtenidas de la API
@@ -6,7 +7,7 @@ const { movieFormater } = require('../formater');
  */
 function approvedMovies(movies) {
   let approved = [];
-  for (let movie in movies) {
+  for (let movie of movies) {
     if (
       !!movie.id &&
       !!movie.title &&

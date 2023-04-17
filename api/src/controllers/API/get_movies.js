@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { approvedMovies } = require('./validate');
+const { getMoviesJSON } = require('../local/get-movies');
 require('dotenv').config();
 
 const { API_KEY } = process.env;
@@ -17,8 +18,7 @@ async function getMovies(page) {
     .catch((err) => null);
 
   if (response === null) {
-    console.log('con error');
-    return 'hola';
+    return getMoviesJSON(page);
   }
 
   return approvedMovies(response);
