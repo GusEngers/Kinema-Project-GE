@@ -17,6 +17,7 @@ router
   .post(async (req, res) => {
     try {
       let data = await addSeries(req.query.page);
+      console.info('-- Finish --')
       res.status(201).json({ data });
     } catch (error) {
       res.status(500).send(error.message);
