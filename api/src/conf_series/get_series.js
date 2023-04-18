@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { validateCards, validateVideos, validateSeries } = require('./validate');
+const { validate } = require('./validate');
 require('dotenv').config();
 
 const { API_KEY } = process.env;
@@ -13,8 +13,7 @@ async function getSeries(page) {
     .catch((err) => {
       throw new Error(err.message);
     });
-  let results = await validateVideos(validateCards(response));
-  return await validateSeries(results);
+  return await validate(response);
 }
 
 module.exports = getSeries;
