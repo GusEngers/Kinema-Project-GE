@@ -3,44 +3,32 @@ const mongoose = require('mongoose');
 const dataSchema = new mongoose.Schema({
   id: {
     type: Number,
-    required: true
+    required: true,
   },
-  name: {
+  title: {
     type: String,
-    required: true
-  },
-  genre: {
-    type: Array,
-    required: true
-  },
-  popularity: {
-    type: Number,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
+  },
+  genres: {
+    type: Array,
+    required: true,
   },
   poster: {
     type: String,
-    required: true
+    required: true,
   },
-  backPoster: {
+  backdrop: {
     type: String,
-    required: true
+    required: true,
   },
   vote_average: {
     type: Number,
-    required: true
+    required: true,
   },
-  vote_count: {
-    type: Number,
-    required: true
-  },
-  first_air_date: {
-    type: String,
-    required: true
-  }
 });
 
 module.exports = mongoose.model('serie', dataSchema);
