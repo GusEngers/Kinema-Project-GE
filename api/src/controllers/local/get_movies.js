@@ -2,9 +2,9 @@ const movies = require('../../database/local/movies.json');
 const { movieFormaterJSON } = require('../formater');
 
 /**
- * Obtiene una lista de películas alojadas en los JSON que sirven como backups
+ * Obtiene una lista de películas alojadas en los archivos JSON
  * @param page Número de página, cada página envía 20 películas
- * @returns Lista con 20 películas del JSON
+ * @returns Lista con hasta 20 películas del archivo JSON
  */
 function getMoviesJSON(page = 1) {
   let omit = (page - 1) * 20;
@@ -13,7 +13,21 @@ function getMoviesJSON(page = 1) {
 }
 
 /**
- * Busca la película en el backup según su id
+ * Obtiene una lista de películas filtradas por género alojadas en los JSON
+ * @param page Número de página, cada página envía 20 películas
+ * @returns Lista con hasta 20 películas filtradas del archivo JSON
+ */
+function getMoviesByIdJSON(genre, page = 1) {
+  let omit = (page - 1) * 20;
+  let limit = omit + 20;
+  return movies
+    .filter((movie) => movie.genres.some((gen) => gen.id === Number(genre)))
+    .slice(omit, limit)
+    .map((movie) => movieFormaterJSON(movie));
+}
+
+/**
+ * Busca la película en según su id en los archivos JSON
  * @param id Id de la película
  * @returns Objecto con el detalle de la película o un error si no se encuentra la película
  */
@@ -26,5 +40,6 @@ function getMovieJSON(id) {
 
 module.exports = {
   getMoviesJSON,
+  getMoviesByIdJSON,
   getMovieJSON,
 };

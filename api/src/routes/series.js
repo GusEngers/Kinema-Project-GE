@@ -12,9 +12,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:genre', async (req, res) => {
+router.get('/genre/:genre', async (req, res) => {
   try {
-    let data = await getSeriesByGenre(req.params.genre, req.query.page);
+    const data = await getSeriesByGenre(req.params.genre, req.query.page);
     res.json(data);
   } catch (error) {
     res.status(500).send(error.message);

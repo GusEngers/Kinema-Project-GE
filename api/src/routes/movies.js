@@ -1,5 +1,8 @@
 const { Router } = require('express');
-const { getMovies } = require('../controllers/API/get_movies');
+const {
+  getMovies,
+  getMoviesByGenre,
+} = require('../controllers/API/get_movies');
 const { getDetailMovie } = require('../controllers/API/get_detail_movie');
 
 const router = Router();
@@ -22,6 +25,15 @@ router.get('/:id', async (req, res) => {
     res.json(data);
   } catch (error) {
     res.status(404).send(error.message);
+  }
+});
+
+router.get('/genre/:genre', async (req, res) => {
+  try {
+    const data = await getMoviesByGenre(req.params.genre, req.query.page);
+    res.json(data);
+  } catch (error) {
+    res.status(500).send(error.message);
   }
 });
 
