@@ -9,7 +9,7 @@ router
   .get(async (req, res) => {
     try {
       const data = await getSeries(req.query.page);
-      res.json({ data });
+      res.json(data);
     } catch (error) {
       res.status(500).send(error.message);
     }
@@ -17,7 +17,7 @@ router
   .post(async (req, res) => {
     try {
       let data = await addSeries(req.query.page);
-      console.info('-- Finish --')
+      console.info('-- Finish --');
       res.status(201).json({ data });
     } catch (error) {
       res.status(500).send(error.message);

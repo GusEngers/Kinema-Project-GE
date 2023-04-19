@@ -6,6 +6,7 @@ const server = express();
 const cors = require('cors');
 const movies = require('./routes/movies.js');
 const genres = require('./routes/genres.js');
+const series = require('./routes/series.js');
 const confSeries = require('./routes/conf_series.js');
 
 server.name = 'API';
@@ -26,6 +27,7 @@ server.use((req, res, next) => {
 
 server.use('/movies', movies);
 server.use('/genres', genres);
+server.use('/series', series);
 server.use('/conf_series', confSeries);
 
 server.use((err, req, res, next) => {

@@ -29,6 +29,10 @@ const dataSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  serie: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 module.exports = mongoose.model('serie', dataSchema);

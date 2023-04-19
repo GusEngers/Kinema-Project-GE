@@ -73,6 +73,7 @@ function serieFormater(serie, mode) {
       poster: IMAGE + serie.poster_path,
       backdrop: IMAGE + serie.backdrop_path,
       vote_average: serie.vote_average,
+      serie: true,
     };
 }
 
