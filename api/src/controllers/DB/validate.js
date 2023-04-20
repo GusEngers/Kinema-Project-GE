@@ -7,12 +7,7 @@ const { getTrailer } = require('../get_trailer');
  * @returns Objeto con los datos de la serie más el trailer
  */
 async function validateSerie(id) {
-  const serie = await Serie.findOne({ id })
-    .select('-_id -__v')
-    .error((err) => undefined);
-  if (serie === undefined) {
-    return {};
-  }
+  const serie = await Serie.findOne({ id });
 
   if (!serie)
     throw new Error(
@@ -25,7 +20,7 @@ async function validateSerie(id) {
       "We're sorry! The tv show you request does not have the video"
     );
 
-  return { ...serie, trailer };
+  return { ...serie._doc, trailer };
 }
 
 module.exports = {
