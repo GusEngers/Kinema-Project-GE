@@ -56,7 +56,7 @@ function movieFormaterJSON(movie) {
 }
 
 /**
- * Foratea los resultados de la temporada de una serie, acortando información innecesaria y asegurando que todos sigan un estándar establecido
+ * Formatea los resultados de la temporada de una serie, acortando información innecesaria y asegurando que todos sigan un estándar establecido
  * @param season Objeto con los datos de la temporada
  * @returns Nuevo objeto formateado
  */
