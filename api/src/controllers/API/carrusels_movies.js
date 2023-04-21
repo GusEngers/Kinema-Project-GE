@@ -1,10 +1,16 @@
 const axios = require('axios');
 const { approvedMovies } = require('./validate');
+const { movies } = require('../../database/local/carrusels.json');
 
 const { API_KEY } = process.env;
 const API = 'https://api.themoviedb.org/3/movie';
 const API_TRENDING = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
 
+/**
+ * Obtiene una lista de películas según el tipo pasado por parámetro
+ * @param mode 'trending', 'popular', 'top_rated', 'upcoming' o 'now_playing'
+ * @returns Array con información de las películas obtenidas de la API
+ */
 async function carrusel(mode) {
   const MODES = ['trending', 'popular', 'top_rated', 'upcoming', 'now_playing'];
   if (!MODES.includes(mode))
@@ -17,7 +23,8 @@ async function carrusel(mode) {
       .get(API_TRENDING, { timeout: 30000 })
       .then((res) => res.data.results)
       .catch((err) => null);
-    if (response === null) return ['hola'];
+
+    if (response === null) return movies[mode];
     return approvedMovies(response);
   }
 
@@ -26,10 +33,14 @@ async function carrusel(mode) {
     .then((res) => res.data.results)
     .catch((err) => null);
 
-  if (response === null) return ['hola'];
+  if (response === null) return movies[mode];
   return approvedMovies(response);
 }
 
+/**
+ * Crea un objeto con los datos obtenidos de ejecutar la función carrusel más su parámetro
+ * @returns Objeto con los datos de los distintos carrusels de películas
+ */
 async function getMovieCarrusels() {
   const data = {};
   data.trending = await carrusel('trending');
