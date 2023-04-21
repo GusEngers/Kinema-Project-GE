@@ -17,10 +17,10 @@ async function getSerieCarrusels() {
   let random = await Serie.aggregate([{ $sample: { size: 20 } }])
     .project('-_id -__v')
     .catch((err) => null);
-
   if (random === null) {
     random = series.random;
   }
+  
   return { popular, random };
 }
 
