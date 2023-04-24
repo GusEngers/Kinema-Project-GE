@@ -1,47 +1,58 @@
 
 # Kinema streaming website: Team project for SoyHenry.
 
-Kinema is a movie and tv show streaming website that includes the following features:
+### Kinema is a movie and tv show streaming website that includes the following features:
 
-• Third-party authentication (Google); 
-• Stripe payment platform integration; 
-• Combined filters;
-• Image loading with Cloudinary;
-• Cloudinary/upload/bucket;
-• E-mail and live notifications;
-• Logic user delete;
-• Redux persist;
-• Likes and review system; and
-• Dashboard admin.
+- Third-party authentication (Google)
+- Stripe payment platform integration
+- Combined filters
+- Image loading with Cloudinary
+- Cloudinary/upload/bucket
+- E-mail and live notifications
+- Logic user delete
+- Redux persist
+- Likes and review system
+- Dashboard admin
 
-Kinema was built with the following tools:
-• JavaScript;
-• Node.js
-• Express.js
-• JSON;
-• Mongo Db;
-• HTML 5;
-• React.js;
-• Redux.js;
-• CSS;
-• Chakra UI
-• Cloudinary
-• Firebase
-• Toastify
-• emailJS
-• Railway; and
-• Vercel.
+### Kinema was built with the following tools:
 
-Contributors: Matias Tonelli, Juan Francisco Drewans, Federico Irarrázaval, Pedro Martinez, Pablo Carro, Adriel Lopez and Gustavo Engers.
+- JavaScript
+- Node.js
+- Express.js
+- JSON
+- MongoDB
+- HTML 5
+- React.js
+- Redux.js
+- CSS
+- Chakra UI
+- Cloudinary
+- Firebase
+- Toastify
+- Nodemailer
+- Railway
+- Vercel
+
+### Contributors: 
+
+- Matias Tonelli
+- Juan Francisco Drewans 
+- Federico Irarrázaval 
+- Pedro Martinez 
+- Pablo Carro 
+- Adriel Lopez
+- Gustavo Engers
 
 Due to legal copyright issues, Kinema only play trailers. 
 
-Link: https://kinema-entertainment.vercel.app/
-You can try any credit card operation with the following: 4242 4242 4242 4242 (any security code will work).
+You can visit the site by following this link: [KINEMA](https://kinema-entertainment.vercel.app/) <br><br>
+
+You can try any credit card operation with the following: <br>
+**4242 4242 4242 4242** (any security code will work).
 
 Hope you enjoy it! 
 
-Below some pics.
+### Below some pics.
 
 ![Kinema](https://user-images.githubusercontent.com/93743323/200679106-52b8c8e3-2c3e-4175-b5aa-38836441d695.png)
 
