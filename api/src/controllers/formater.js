@@ -136,4 +136,5 @@ module.exports = {
   movieFormater,
   movieFormaterJSON,
   serieFormater,
+  seasonFormater,
 };
