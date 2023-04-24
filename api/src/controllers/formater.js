@@ -113,7 +113,7 @@ function serieFormater(serie, mode) {
   if (mode.toLowerCase() === 'detail') {
     return {
       id: serie.id,
-      title: serie.title,
+      title: serie.name,
       description: serie.overview,
       genres: serie.genres,
       rating: serie.vote_average,
