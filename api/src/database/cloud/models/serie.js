@@ -25,7 +25,7 @@ const dataSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  vote_average: {
+  rating: {
     type: Number,
     required: true,
   },

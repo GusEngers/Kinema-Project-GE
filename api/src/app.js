@@ -8,6 +8,7 @@ const movies = require('./routes/movies.js');
 const genres = require('./routes/genres.js');
 const series = require('./routes/series.js');
 const carrusels = require('./routes/carrusels.js');
+const search = require('./routes/search.js');
 const confSeries = require('./routes/conf_series.js');
 
 server.name = 'API';
@@ -30,6 +31,7 @@ server.use('/movies', movies);
 server.use('/genres', genres);
 server.use('/series', series);
 server.use('/carrusels', carrusels);
+server.use('/search', search);
 server.use('/conf_series', confSeries);
 
 server.use((err, req, res, next) => {

@@ -15,7 +15,8 @@ function approvedMovies(movies) {
       !!movie.genre_ids &&
       !!movie.genre_ids.length &&
       !!movie.poster_path &&
-      !!movie.backdrop_path
+      !!movie.backdrop_path &&
+      !!movie.vote_average
     ) {
       approved.push(movie);
     }

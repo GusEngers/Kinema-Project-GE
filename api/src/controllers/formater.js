@@ -18,6 +18,7 @@ function movieFormater(movie, mode) {
       genres: genreInfo(movie.genre_ids, 'movie'),
       poster: IMAGE + movie.poster_path,
       backdrop: IMAGE + movie.backdrop_path,
+      rating: movie.vote_average,
     };
   if (mode.toLowerCase() === 'detail')
     return {
@@ -52,6 +53,7 @@ function movieFormaterJSON(movie) {
     genres: movie.genres,
     poster: movie.poster,
     backdrop: movie.backdrop,
+    rating: movie.rating,
   };
 }
 
@@ -107,7 +109,7 @@ function serieFormater(serie, mode) {
       genres: genreInfo(serie.genre_ids, 'tv'),
       poster: IMAGE + serie.poster_path,
       backdrop: IMAGE + serie.backdrop_path,
-      vote_average: serie.vote_average,
+      rating: serie.vote_average,
       serie: true,
     };
   if (mode.toLowerCase() === 'detail') {

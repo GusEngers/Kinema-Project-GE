@@ -39,7 +39,25 @@ async function getSeriesByGenre(genre, page = 1) {
   return response;
 }
 
+/**
+ * Obtiene 20 series de la base de datos filtradas por nombre
+ * @param query Nombre de la serie
+ * @param page Número de página
+ * @returns Array con hasta 20 series filtradas por nombre
+ */
+async function getSeriesByName(query, page = 1) {
+  let response = await Serie.find({ title: new RegExp(query, 'i') })
+    .select('-_id -__v')
+    .skip((page - 1) * 20)
+    .limit(20)
+    .catch((error) => null);
+
+  if (response === null) return [];
+  return response;
+}
+
 module.exports = {
   getSeries,
   getSeriesByGenre,
+  getSeriesByName,
 };

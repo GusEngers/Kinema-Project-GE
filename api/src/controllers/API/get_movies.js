@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { approvedMovies } = require('./validate');
-const { getMoviesJSON, getMoviesByIdJSON } = require('../local/get_movies');
+const { getMoviesJSON, getMoviesByGenreJSON } = require('../local/get_movies');
 const { GENRES_MOVIES } = require('../genres');
 require('dotenv').config();
 
@@ -18,10 +18,7 @@ async function getMovies(page) {
     .then((res) => res.data.results)
     .catch((err) => null);
 
-  if (response === null) {
-    return getMoviesJSON(page);
-  }
-
+  if (response === null) return getMoviesJSON(page);
   return approvedMovies(response);
 }
 
@@ -44,10 +41,7 @@ async function getMoviesByGenre(genre, page = 1) {
     .then((res) => res.data.results)
     .catch((err) => null);
 
-  if (response === null) {
-    return getMoviesByIdJSON(genre, page);
-  }
-
+  if (response === null) return getMoviesByGenreJSON(genre, page);
   return approvedMovies(response);
 }
 module.exports = {

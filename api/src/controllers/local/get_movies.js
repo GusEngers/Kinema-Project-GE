@@ -14,14 +14,31 @@ function getMoviesJSON(page = 1) {
 
 /**
  * Obtiene una lista de películas filtradas por género alojadas en los JSON
+ * @param genre Id del género a filtrar
  * @param page Número de página, cada página envía 20 películas
  * @returns Lista con hasta 20 películas filtradas del archivo JSON
  */
-function getMoviesByIdJSON(genre, page = 1) {
+function getMoviesByGenreJSON(genre, page = 1) {
   let omit = (page - 1) * 20;
   let limit = omit + 20;
   return movies
     .filter((movie) => movie.genres.some((gen) => gen.id === Number(genre)))
+    .slice(omit, limit)
+    .map((movie) => movieFormaterJSON(movie));
+}
+
+/**
+ * Obtiene una lista de películas filtradas por su nombre alojadas en los JSON
+ * @param query Nombre de la película a filtrar
+ * @param page Número de página, cada página envía 20 películas
+ * @returns Lista con hasta 20 películas filtradas del archivo JSON
+ */
+function getSearchMoviesJSON(query, page = 1) {
+  let omit = (page - 1) * 20;
+  let limit = omit + 20;
+  let search = new RegExp(query, 'i');
+  return movies
+    .filter((movie) => search.test(movie.title))
     .slice(omit, limit)
     .map((movie) => movieFormaterJSON(movie));
 }
@@ -40,6 +57,7 @@ function getMovieJSON(id) {
 
 module.exports = {
   getMoviesJSON,
-  getMoviesByIdJSON,
+  getMoviesByGenreJSON,
+  getSearchMoviesJSON,
   getMovieJSON,
 };
