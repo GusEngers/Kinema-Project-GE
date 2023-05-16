@@ -10,6 +10,7 @@ const series = require('./routes/series.js');
 const carrusels = require('./routes/carrusels.js');
 const search = require('./routes/search.js');
 // const comments = require('./routes/comments.js');
+// const likes = require('./routes/likes.js');
 const confSeries = require('./routes/conf_series.js');
 
 server.name = 'API';
@@ -34,6 +35,7 @@ server.use('/series', series);
 server.use('/carrusels', carrusels);
 server.use('/search', search);
 // server.use('/comments', comments);
+// server.use('/likes', likes)
 server.use('/conf_series', confSeries);
 
 server.use((err, req, res, next) => {
