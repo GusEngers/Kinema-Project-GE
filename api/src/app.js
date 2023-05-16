@@ -11,6 +11,7 @@ const carrusels = require('./routes/carrusels.js');
 const search = require('./routes/search.js');
 // const comments = require('./routes/comments.js');
 // const likes = require('./routes/likes.js');
+const payment = require('./routes/payment.js');
 const email = require('./routes/email.js');
 const confSeries = require('./routes/conf_series.js');
 
@@ -37,6 +38,7 @@ server.use('/carrusels', carrusels);
 server.use('/search', search);
 // server.use('/comments', comments);
 // server.use('/likes', likes)
+server.use('/payment', payment);
 server.use('/email', email);
 server.use('/conf_series', confSeries);
 

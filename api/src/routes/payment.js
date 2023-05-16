@@ -1,15 +1,12 @@
 const { Router } = require('express');
 const Stripe = require('stripe');
 const stripe = new Stripe(process.env.STRIPE_KEY);
-const { doc, updateDoc } = require('firebase/firestore');
-const paymenRoutes = Router();
 
-// Stripe:
-paymenRoutes.post('/premium', async (req, res) => {
+const router = Router();
+
+router.post('/premium', async (req, res) => {
+  const { id, username, email } = req.body;
   try {
-    const { id, username, email } = req.body;
-    let clientId = '';
-
     const newCustomer = await stripe.customers.create({
       name: username,
       email: email,
@@ -17,29 +14,25 @@ paymenRoutes.post('/premium', async (req, res) => {
       invoice_settings: { default_payment_method: id },
     });
 
-    clientId = newCustomer.id;
-
     const subscription = await stripe.subscriptions.create({
       currency: 'usd',
       description: 'Kinema Premium',
-      customer: clientId,
+      customer: newCustomer.id,
       items: [{ price: 'price_1LvYP5FFC0gF7yTenRItnb4g' }],
     });
 
-    const subId = subscription.id;
-
-    res.send({
+    res.json({
       message:
         'Your payment has been successfully processed. Enjoy Kinema Premium',
-      subId,
+      subId: subscription.id,
       success: true,
     });
   } catch (error) {
-    res.json({ message: error.message, sucess: false });
+    res.status(500).json({ message: error.message, sucess: false });
   }
 });
 
-paymenRoutes.post('/rent', async (req, res) => {
+router.post('/rent', async (req, res) => {
   try {
     const { id, username, email, title } = req.body;
     let clientId = '';
@@ -59,36 +52,36 @@ paymenRoutes.post('/rent', async (req, res) => {
       clientId = newCustomer.id;
     }
 
-    const payment = await stripe.paymentIntents.create({
+    await stripe.paymentIntents.create({
       amount: '199',
       currency: 'usd',
-      description: 'Kinema Rent - ' + title,
+      description: `Kinema Rent - ${title}`,
       payment_method: id,
       confirm: true,
       customer: clientId,
     });
 
-    res.send({
+    res.json({
       message:
         'Your payment has been successfully processed. Enjoy your movie!',
       success: true,
     });
   } catch (error) {
-    res.json({ message: error.message, sucess: false });
+    res.status(500).json({ message: error.message, sucess: false });
   }
 });
 
-paymenRoutes.post('/downgrade', async (req, res) => {
+router.post('/downgrade', async (req, res) => {
   try {
     const { id } = req.body;
-    stripe.subscriptions.del(id);
-    res.send({
+    await stripe.subscriptions.del(id);
+    res.json({
       message: 'Your subscription has been canceled.',
       success: true,
     });
   } catch (error) {
-    res.json({ message: 'Fail downgrade.', sucess: false });
+    res.status(500).json({ message: 'Fail downgrade.', sucess: false });
   }
 });
 
-module.exports = paymenRoutes;
+module.exports = router;
